@@ -1,20 +1,134 @@
 line {
   stroke: #ddd;
-  stroke-width: 2;
-}
+  stroke-width: 2; }
 
 circle {
-  transition: all .4s linear;
-}
+  transition: all .4s linear; }
 
 .percentile-line {
-  stroke-dasharray: 5,5;
-}
+  stroke-dasharray: 5,5; }
 
-.green {
-  stroke: green;
-}
-
-.red {
+line[class*="income_inequality"],
+line[class*="median_income"] {
   stroke: red;
-}
+  opacity: 0; }
+
+@keyframes income_inequality-life_expectancy {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.income_inequality-life_expectancy {
+  animation-name: income_inequality-life_expectancy;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes income_inequality-teen_births {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.income_inequality-teen_births {
+  animation-name: income_inequality-teen_births;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes income_inequality-homicides {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.income_inequality-homicides {
+  animation-name: income_inequality-homicides;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes income_inequality-imprisonment {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.income_inequality-imprisonment {
+  animation-name: income_inequality-imprisonment;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes income_inequality-drop_outs {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.income_inequality-drop_outs {
+  animation-name: income_inequality-drop_outs;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes median_income-life_expectancy {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.median_income-life_expectancy {
+  animation-name: median_income-life_expectancy;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes median_income-teen_births {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.median_income-teen_births {
+  animation-name: median_income-teen_births;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes median_income-homicides {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.median_income-homicides {
+  animation-name: median_income-homicides;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes median_income-imprisonment {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.median_income-imprisonment {
+  animation-name: median_income-imprisonment;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }
+
+@keyframes median_income-drop_outs {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.median_income-drop_outs {
+  animation-name: median_income-drop_outs;
+  animation-delay: .4s;
+  animation-duration: .4s;
+  animation-fill-mode: forwards; }

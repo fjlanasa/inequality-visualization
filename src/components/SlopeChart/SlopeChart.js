@@ -10,7 +10,7 @@ export default function SlopeChart(props) {
     bottom: 50
   }
 
-  let {data, incomeMetric, wellbeingMetric} = props;
+  let {data, incomeMetric, wellbeingMetric, chartType} = props;
 
   let height = 500 - margin.top - margin.bottom,
       width = 750 - margin.left - margin.right;
@@ -42,17 +42,20 @@ export default function SlopeChart(props) {
   });
 
   stateData = stateData.map((state, index) => {
-    let props = {incomeMetric,
-                 wellbeingMetric,
-                 minIncomeMetric,
-                 maxIncomeMetric,
-                 minWellbeingMetric,
-                 maxWellbeingMetric,
-                 height,
-                 width,
-                 margin,
-                 state
-               };
+    let props = {
+      incomeMetric,
+      wellbeingMetric,
+      chartType,
+      minIncomeMetric,
+      maxIncomeMetric,
+      minWellbeingMetric,
+      maxWellbeingMetric,
+      height,
+      width,
+      margin,
+      state
+     };
+     
     return (
       <StateData
         {...props}

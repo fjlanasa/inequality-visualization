@@ -1,0 +1,39 @@
+
+line {
+  stroke: #ddd;
+  stroke-width: 2;
+}
+
+circle {
+  transition: all .4s linear;
+}
+
+.percentile-line {
+  stroke-dasharray: 5,5;
+}
+
+$income-metrics: 'income_inequality', 'median_income';
+$wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs';
+
+line[class*="income_inequality"],
+line[class*="median_income"] {
+  stroke: red;
+  opacity: 0;
+}
+
+@each $income-metric in $income-metrics {
+  @each $wellbeing-metric in $wellbeing-metrics {
+
+    @keyframes #{$income-metric}-#{$wellbeing-metric} {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .#{$income-metric}-#{$wellbeing-metric} {
+      animation-name: #{$income-metric}-#{$wellbeing-metric};
+      animation-delay: .4s;
+      animation-duration: .4s;
+      animation-fill-mode: forwards;
+    }
+  }
+}

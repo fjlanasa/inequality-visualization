@@ -9,7 +9,7 @@ export default function RadioButtonCollection(props) {
         value={option}
         key={index}
         handleChange={props.handleChange}
-        checked={props[props.name] == option}
+        checked={props[props.name] === option}
       />
     );
   });
