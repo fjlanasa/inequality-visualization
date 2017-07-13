@@ -8,13 +8,12 @@ export default function StateData(props) {
   if(['life_expectancy', 'index'].indexOf(wellbeingMetric) == -1) wellbeingYPct = 1 - wellbeingYPct;
 
   let incomeYCoord = (1 - incomeYPct) * height + margin.top,
-      wellbeingYCoord = (1 - wellbeingYPct) * height + margin.top;
+      wellbeingYCoord = (1 - wellbeingYPct) * width + margin.left;
 
   return (
     <g>
-      <circle cx={margin.left} cy={incomeYCoord} r={3} fill='blue' />
-      <circle cx={margin.left + width} cy={wellbeingYCoord} r={3} fill='blue' />
-      <line x1={margin.left} x2={margin.left + width} y1={incomeYCoord} y2={wellbeingYCoord} className={(wellbeingYCoord > incomeYCoord ? 'red': 'green')} />
+      <circle cx={wellbeingYCoord} cy={incomeYCoord} r={3} fill='blue' />
     </g>
+
   );
 }

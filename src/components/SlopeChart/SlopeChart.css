@@ -3,6 +3,9 @@ line {
   stroke-width: 2;
 }
 
+circle {
+  transition: all .4s linear;
+}
 
 .percentile-line {
   stroke-dasharray: 5,5;
