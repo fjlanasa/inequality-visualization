@@ -10,10 +10,10 @@ export default function SlopeChart(props) {
     bottom: 50
   }
 
-  let {data, incomeMetric, wellbeingMetric} = props;
+  let {data, incomeMetric, wellbeingMetric, chartType} = props;
 
   let height = 500 - margin.top - margin.bottom,
-      width = 500 - margin.left - margin.right;
+      width = 750 - margin.left - margin.right;
 
   let percentileLines = [0, .25, .5, .75, 1].map((pct, index) => {
     let yLineCoord = pct * height + margin.top;
@@ -42,17 +42,20 @@ export default function SlopeChart(props) {
   });
 
   stateData = stateData.map((state, index) => {
-    let props = {incomeMetric,
-                 wellbeingMetric,
-                 minIncomeMetric,
-                 maxIncomeMetric,
-                 minWellbeingMetric,
-                 maxWellbeingMetric,
-                 height,
-                 width,
-                 margin,
-                 state
-               };
+    let props = {
+      incomeMetric,
+      wellbeingMetric,
+      chartType,
+      minIncomeMetric,
+      maxIncomeMetric,
+      minWellbeingMetric,
+      maxWellbeingMetric,
+      height,
+      width,
+      margin,
+      state
+     };
+     
     return (
       <StateData
         {...props}
@@ -63,7 +66,7 @@ export default function SlopeChart(props) {
 
   return (
     <div>
-      <svg height={500} width={500} viewBox='0 0 500 500'>
+      <svg height={500} width={750}>
         <g className='axis-lines'>
           <line className='axis' x1={margin.left} x2={margin.left} y1={margin.top} y2={margin.top + height} />
           <line className='axis' x1={width + margin.left} x2={width + margin.left} y1={margin.top} y2={margin.top + height} />

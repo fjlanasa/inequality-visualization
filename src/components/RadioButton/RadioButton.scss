@@ -1,0 +1,11 @@
+input[type=radio] {
+  display: none;
+
+  &+ div {
+    background-color: #ddd;
+  }
+
+  &:checked + div {
+    background-color: blue;
+  }
+}
