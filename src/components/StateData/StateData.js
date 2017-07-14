@@ -8,7 +8,7 @@ export default function StateData(props) {
       incomeCoord,
       wellbeingCoord;
 
-  if (props.chartType == 'scatter') {
+  if (props.graphType === 'scatter') {
     incomeCoord = incomePct * width + margin.left,
     wellbeingCoord = (1 - wellbeingPct) * height + margin.top;
     return (

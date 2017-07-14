@@ -6,7 +6,8 @@
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "regression": "^1.4.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
