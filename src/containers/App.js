@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Graph from './../components/Graph/Graph';
 import RadioButtonCollection from './../components/RadioButtonCollection/RadioButtonCollection';
+import Tooltip from './../components/Tooltip/Tooltip';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,9 +9,13 @@ export default class App extends Component {
     this.state = {
       graphType: 'scatter',
       incomeMetric: 'income_inequality',
-      wellbeingMetric: 'life_expectancy'
+      wellbeingMetric: 'life_expectancy',
+      hoveredState: null,
+      tooltipPosition: null
     }
 
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -20,10 +25,27 @@ export default class App extends Component {
     this.setState(newState);
   }
 
+  handleMouseEnter(e) {
+    this.setState({
+      hoveredState: JSON.parse(e.target.dataset.state),
+      tooltipPosition: {
+        left: e.pageX + 10,
+        top: e.pageY - 10
+      }
+    });
+  }
+
+  handleMouseLeave(e) {
+    this.setState({hoveredState: null});
+  }
+
   render() {
     let incomeMetrics = ['income_inequality', 'median_income'],
         wellbeingMetrics = ['life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs'],
-        graphTypes = ['scatter', 'slope'];
+        graphTypes = ['scatter', 'slope'],
+        tooltip = null;
+
+    if (this.state.hoveredState) tooltip = <Tooltip {...this.state} />
 
     return (
       <div>
@@ -36,7 +58,8 @@ export default class App extends Component {
         <div className='data-selector chart-type'>
           <RadioButtonCollection name='graphType' options={graphTypes} handleChange={this.handleChange} {...this.state}/>
         </div>
-        <Graph {...this.state} data={this.props.data} />
+        <Graph {...this.state} data={this.props.data} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave}/>
+        {tooltip}
       </div>
     );
   }

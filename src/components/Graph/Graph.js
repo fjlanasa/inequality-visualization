@@ -10,7 +10,7 @@ export default function Graph(props) {
     bottom: 50
   }
 
-  let {data, incomeMetric, wellbeingMetric, graphType} = props,
+  let {data, incomeMetric, wellbeingMetric, graphType, handleMouseEnter, handleMouseLeave, hoveredState} = props,
       height = 500 - margin.top - margin.bottom,
       width = 750 - margin.left - margin.right;
 
@@ -56,7 +56,10 @@ export default function Graph(props) {
       height,
       width,
       margin,
-      state
+      state,
+      handleMouseEnter,
+      handleMouseLeave,
+      hoveredState
      };
 
     return (

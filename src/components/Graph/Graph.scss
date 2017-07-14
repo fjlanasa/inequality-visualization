@@ -6,6 +6,7 @@ line {
 
 circle {
   transition: all .4s linear;
+  fill: #044B7F;
 }
 
 .x-axis-lines {
@@ -21,11 +22,11 @@ line[class*="median_income"] {
 }
 
 .green {
-  stroke: #b30000;
+  stroke: #6D9F71;
 }
 
 .red {
-  stroke: #009933;
+  stroke: #AD2831;
 }
 
 @each $income-metric in $income-metrics {
