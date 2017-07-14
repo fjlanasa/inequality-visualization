@@ -25,11 +25,7 @@ export default function Graph(props) {
       minIncomeMetric = data[0][incomeMetric],
       maxWellbeingMetric = data[0][wellbeingMetric],
       minWellbeingMetric = data[0][wellbeingMetric],
-      stateDataPlots = [],
-      xSeries = [],
-      ySeries = [],
-      series = [],
-      leastSquaresLine;
+      stateDataPlots = [];
 
   data.forEach((state) => {
     let stateIncomeMetric = state[incomeMetric],

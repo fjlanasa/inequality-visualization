@@ -13,14 +13,6 @@ circle {
   stroke-dasharray: 5,5;
 }
 
-$income-metrics: 'income_inequality', 'median_income';
-$wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs';
-
-line[class*="income_inequality"],
-line[class*="median_income"] {
-  opacity: 0;
-}
-
 .green {
   stroke: #6D9F71;
 }
@@ -28,6 +20,9 @@ line[class*="median_income"] {
 .red {
   stroke: #AD2831;
 }
+
+$income-metrics: 'income_inequality', 'median_income';
+$wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs';
 
 @each $income-metric in $income-metrics {
   @each $wellbeing-metric in $wellbeing-metrics {
@@ -41,7 +36,11 @@ line[class*="median_income"] {
       animation-name: #{$income-metric}-#{$wellbeing-metric};
       animation-delay: .4s;
       animation-duration: .4s;
-      animation-fill-mode: forwards;
+      animation-fill-mode: backwards;
     }
   }
+}
+
+.opaque {
+  opacity: .1;
 }
