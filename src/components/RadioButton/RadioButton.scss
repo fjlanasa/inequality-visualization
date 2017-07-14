@@ -10,6 +10,7 @@ input[type=radio] {
   }
 
   &:checked + div {
-    background-color: blue;
+    background-color: #044B7F;
+    color: white;
   }
 }

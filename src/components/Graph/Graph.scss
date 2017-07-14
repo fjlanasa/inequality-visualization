@@ -13,6 +13,11 @@ circle {
   stroke-dasharray: 5,5;
 }
 
+.green,
+.red {
+  opacity: .5;
+}
+
 .green {
   stroke: #6D9F71;
 }
@@ -29,7 +34,7 @@ $wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment
 
     @keyframes #{$income-metric}-#{$wellbeing-metric} {
       from {opacity: 0;}
-      to {opacity: 1;}
+      to {opacity: .5;}
     }
 
     .#{$income-metric}-#{$wellbeing-metric} {

@@ -11,7 +11,7 @@ export default class App extends Component {
       incomeMetric: 'income_inequality',
       wellbeingMetric: 'life_expectancy',
       hoveredState: null,
-      tooltipPosition: null
+      tooltipStyle: null
     }
 
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
@@ -28,9 +28,9 @@ export default class App extends Component {
   handleMouseEnter(e) {
     this.setState({
       hoveredState: JSON.parse(e.target.dataset.state),
-      tooltipPosition: {
-        left: e.pageX + 10,
-        top: e.pageY - 10
+      tooltipStyle: {
+        left: e.pageX + (e.pageX > window.innerWidth / 2 ? -110 : 10),
+        top: e.pageY + (e.pageY > window.innerHeight / 2 ? -60 : 10),
       }
     });
   }
