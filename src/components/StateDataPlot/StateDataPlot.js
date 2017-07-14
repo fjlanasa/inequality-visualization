@@ -39,7 +39,7 @@ export default function StateData(props) {
     wellbeingCoord = (1 - wellbeingPct) * height + margin.top;
     let lineClass = circleClass;
     lineClass += ` ${incomeMetric}-${wellbeingMetric}`;
-    lineClass += ` ${(wellbeingCoord > incomeCoord ? 'green' : 'red')}`;
+    lineClass += ` ${(wellbeingCoord >= incomeCoord ? 'green' : 'red')}`;
 
     return (
       <g>

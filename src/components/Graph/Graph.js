@@ -67,7 +67,7 @@ export default function Graph(props) {
   });
 
   return (
-    <div>
+    <div className='graph-container'>
       <svg viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}>
         <g className='y-axis-lines'>
           <line className='axis' x1={margin.left} x2={margin.left} y1={margin.top} y2={margin.top + height} />

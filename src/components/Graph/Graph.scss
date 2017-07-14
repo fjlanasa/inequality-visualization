@@ -5,7 +5,7 @@ line {
 }
 
 circle {
-  transition: all .4s linear;
+  transition: cx .4s linear, cy .4s linear, r .4s linear;
   fill: #044B7F;
 }
 
@@ -43,4 +43,8 @@ $wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment
 
 .opaque {
   opacity: .1;
+}
+
+.graph-container {
+  box-shadow: 0 0 1em #ddd;
 }
