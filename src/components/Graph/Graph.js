@@ -10,9 +10,9 @@ export default function Graph(props) {
     bottom: 50
   }
 
-  let {data, incomeMetric, wellbeingMetric, graphType, handleMouseEnter, handleMouseLeave, hoveredState} = props,
-      height = 500 - margin.top - margin.bottom,
-      width = 750 - margin.left - margin.right;
+  let {data, incomeMetric, wellbeingMetric, graphType, handleMouseEnter, handleMouseLeave, hoveredState, svgDimensions} = props,
+      height = svgDimensions.height - margin.top - margin.bottom,
+      width = svgDimensions.width - margin.left - margin.right;
 
   let xAxisLines = [0, .25, .5, .75, 1].map((pct, index) => {
     let yLineCoord = pct * height + margin.top;
@@ -68,7 +68,7 @@ export default function Graph(props) {
 
   return (
     <div>
-      <svg height={500} width={750}>
+      <svg viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}>
         <g className='y-axis-lines'>
           <line className='axis' x1={margin.left} x2={margin.left} y1={margin.top} y2={margin.top + height} />
           <line className='axis' x1={width + margin.left} x2={width + margin.left} y1={margin.top} y2={margin.top + height} />

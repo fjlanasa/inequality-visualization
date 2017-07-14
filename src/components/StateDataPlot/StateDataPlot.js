@@ -42,9 +42,9 @@ export default function StateData(props) {
 
     return (
       <g>
+        <line x1={margin.left} x2={margin.left + width} y1={incomeCoord} data-state={dataStateAttr} y2={wellbeingCoord} className={lineClass} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>/>
         <circle className={circleClass} cx={margin.left} cy={incomeCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
         <circle className={circleClass} cx={margin.left + width} cy={wellbeingCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-        <line x1={margin.left} x2={margin.left + width} y1={incomeCoord} data-state={dataStateAttr} y2={wellbeingCoord} className={lineClass} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>/>
       </g>
     );
   }

@@ -58,7 +58,7 @@ export default class App extends Component {
         <div className='data-selector chart-type'>
           <RadioButtonCollection name='graphType' options={graphTypes} handleChange={this.handleChange} {...this.state}/>
         </div>
-        <Graph {...this.state} data={this.props.data} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave}/>
+        <Graph {...this.state} {...this.props} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave}/>
         {tooltip}
       </div>
     );
