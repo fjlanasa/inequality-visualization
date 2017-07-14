@@ -20,11 +20,14 @@ export default function StateData(props) {
   } else {
     incomeCoord = (1 - incomePct) * height + margin.top,
     wellbeingCoord = (1 - wellbeingPct) * height + margin.top;
+    let r = Math.round((255 * incomePct) / 100),
+    g = Math.round((255 * (100 - incomePct)) / 100),
+    b = 0;
     return (
     <g>
       <circle cx={margin.left} cy={incomeCoord} r={3} fill='blue' />
       <circle cx={margin.left + width} cy={wellbeingCoord} r={3} fill='blue' />
-      <line x1={margin.left} x2={margin.left + width} y1={incomeCoord} y2={wellbeingCoord} className={(wellbeingCoord > incomeCoord ? `red ${incomeMetric}-${wellbeingMetric}`: `green ${incomeMetric}-${wellbeingMetric}`)} />
+      <line x1={margin.left} x2={margin.left + width} y1={incomeCoord} y2={wellbeingCoord} className={(wellbeingCoord > incomeCoord ? `green ${incomeMetric}-${wellbeingMetric}`: `red ${incomeMetric}-${wellbeingMetric}`)} />
     </g>
   );
   }

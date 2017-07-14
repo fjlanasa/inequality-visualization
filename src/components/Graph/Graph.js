@@ -1,7 +1,6 @@
 import React from 'react';
 import './Graph.css';
-import StateData from './../StateData/StateData';
-import regression from 'regression';
+import StateDataPlot from './../StateDataPlot/StateDataPlot';
 
 export default function Graph(props) {
   let margin = {
@@ -26,7 +25,7 @@ export default function Graph(props) {
       minIncomeMetric = data[0][incomeMetric],
       maxWellbeingMetric = data[0][wellbeingMetric],
       minWellbeingMetric = data[0][wellbeingMetric],
-      stateData = [],
+      stateDataPlots = [],
       xSeries = [],
       ySeries = [],
       series = [],
@@ -37,10 +36,7 @@ export default function Graph(props) {
         stateWellbeingMetric = state[wellbeingMetric];
 
     if (stateIncomeMetric && stateWellbeingMetric ) {
-      stateData.push(state);
-      // xSeries.push(state[incomeMetric]);
-      // ySeries.push(state[wellbeingMetric]);
-      // series.push([state[incomeMetric], state[wellbeingMetric]]);
+      stateDataPlots.push(state);
       if (stateIncomeMetric > maxIncomeMetric) maxIncomeMetric = stateIncomeMetric;
       if (stateIncomeMetric < minIncomeMetric) minIncomeMetric = stateIncomeMetric;
       if (stateWellbeingMetric > maxWellbeingMetric) maxWellbeingMetric = stateWellbeingMetric;
@@ -48,27 +44,7 @@ export default function Graph(props) {
     }
   });
 
-  // if (graphType === 'scatter') {
-  //   let result = regression('linear', series);
-  //   let leastSquaresCoef = leastSquares(xSeries, ySeries),
-  //       slope = leastSquaresCoef[0],
-  //       rSquare = leastSquaresCoef[2],
-  //       y1Intercept = leastSquaresCoef[1],
-  //       y1InterceptPct = (y1Intercept - minWellbeingMetric)/(maxWellbeingMetric - minWellbeingMetric),
-  //       y2Intercept = leastSquaresCoef[1] + slope * maxIncomeMetric,
-  //       y2InterceptPct = (y2Intercept - minWellbeingMetric)/(maxWellbeingMetric - minWellbeingMetric),
-  //       x1 = margin.left,
-  //       x2 = width + margin.left,
-  //       y1 = (1 - y1InterceptPct) * height + margin.top,
-  //       y2 = (1 - y2InterceptPct) * height + margin.top;
-  //   debugger;
-  //   leastSquaresLine = <line x1={x1} x2={x2} y1={y1} y2={y2} className={`${incomeMetric}-${wellbeingMetric}`} />
-  // } else {
-  //   leastSquaresLine = null;
-  // }
-
-
-  stateData = stateData.map((state, index) => {
+  stateDataPlots = stateDataPlots.map((state, index) => {
     let props = {
       incomeMetric,
       wellbeingMetric,
@@ -84,7 +60,7 @@ export default function Graph(props) {
      };
 
     return (
-      <StateData
+      <StateDataPlot
         {...props}
         key={index}
       />
@@ -102,7 +78,7 @@ export default function Graph(props) {
           {xAxisLines}
         </g>
         <g className='state-data'>
-          {stateData}
+          {stateDataPlots}
         </g>
       </svg>
     </div>

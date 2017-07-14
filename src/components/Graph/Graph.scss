@@ -17,8 +17,15 @@ $wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment
 
 line[class*="income_inequality"],
 line[class*="median_income"] {
-  stroke: red;
   opacity: 0;
+}
+
+.green {
+  stroke: #b30000;
+}
+
+.red {
+  stroke: #009933;
 }
 
 @each $income-metric in $income-metrics {
