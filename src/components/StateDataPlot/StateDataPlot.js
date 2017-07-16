@@ -1,4 +1,5 @@
 import React from 'react';
+import './StateDataPlot.css';
 
 export default function StateData(props) {
   let {incomeMetric,
@@ -16,13 +17,15 @@ export default function StateData(props) {
        hoveredState
       } = props;
 
-  let incomePct = (state[incomeMetric] - minIncomeMetric) / (maxIncomeMetric - minIncomeMetric),
-      wellbeingPct = (state[wellbeingMetric] - minWellbeingMetric) / (maxWellbeingMetric - minWellbeingMetric),
-      dataStateAttr = JSON.stringify(state),
-      incomeCoord,
-      wellbeingCoord;
+      let incomeRange = maxIncomeMetric - minIncomeMetric,
+          wellbeingRange = maxWellbeingMetric - minWellbeingMetric,
+          incomePct = (state[incomeMetric] - minIncomeMetric) / incomeRange,
+          wellbeingPct = (state[wellbeingMetric] - minWellbeingMetric) / wellbeingRange,
+          dataStateAttr = JSON.stringify(state),
+          incomeCoord,
+          wellbeingCoord;
 
-  let circleClass = (hoveredState && state['state_abbrev'] != hoveredState['state_abbrev'] ? 'opaque' : '');
+  let circleClass = (hoveredState && state.state_abbrev != hoveredState.state_abbrev ? 'opaque' : '');
 
   if (props.graphType === 'scatter') {
     incomeCoord = incomePct * width + margin.left;
@@ -43,9 +46,9 @@ export default function StateData(props) {
 
     return (
       <g>
-        <circle className={circleClass} cx={margin.left} cy={incomeCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-        <circle className={circleClass} cx={margin.left + width} cy={wellbeingCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-        <line x1={margin.left + 3} x2={margin.left + width - 3} y1={incomeCoord} data-state={dataStateAttr} y2={wellbeingCoord} className={lineClass} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>/>
+        <circle className={circleClass} cx={margin.left} cy={wellbeingCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+        <circle className={circleClass} cx={margin.left + width} cy={incomeCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+        <line x1={margin.left + 3} x2={margin.left + width - 3} y1={wellbeingCoord} data-state={dataStateAttr} y2={incomeCoord} className={lineClass} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>/>
       </g>
     );
   }

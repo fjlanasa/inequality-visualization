@@ -13,43 +13,6 @@ circle {
   stroke-dasharray: 5,5;
 }
 
-.green,
-.red {
-  opacity: .5;
-}
-
-.green {
-  stroke: #6D9F71;
-}
-
-.red {
-  stroke: #AD2831;
-}
-
-$income-metrics: 'income_inequality', 'median_income';
-$wellbeing-metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs';
-
-@each $income-metric in $income-metrics {
-  @each $wellbeing-metric in $wellbeing-metrics {
-
-    @keyframes #{$income-metric}-#{$wellbeing-metric} {
-      from {opacity: 0;}
-      to {opacity: .5;}
-    }
-
-    .#{$income-metric}-#{$wellbeing-metric} {
-      animation-name: #{$income-metric}-#{$wellbeing-metric};
-      animation-delay: .4s;
-      animation-duration: .4s;
-      animation-fill-mode: backwards;
-    }
-  }
-}
-
-.opaque {
-  opacity: .1;
-}
-
 .graph-container {
   box-shadow: 0 0 1em #ddd;
 }

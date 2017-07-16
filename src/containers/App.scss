@@ -1,0 +1,49 @@
+.data-selector {
+  border: 1px solid #ddd;
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  height: 50px;
+
+  .selector-btn {
+    height: 100%;
+
+
+  }
+  .radio-collection {
+    display: none;
+  }
+
+  &:hover,
+  &.selected {
+    border: 1px solid #044B7F;
+
+    .selector-btn {
+      background-color: #F1F1F1;
+    }
+
+    .radio-collection {
+      position: absolute;
+      display: block;
+      z-index: 1;
+      width: 100%;
+
+      div {
+        border: 1px solid #044B7F;
+        cursor: pointer;
+        height: 50px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &.selected {
+    .selector-btn {
+      background-color: #E3E3E3;
+    }
+  }
+}

@@ -14,7 +14,7 @@ export default function RadioButtonCollection(props) {
     );
   });
   return (
-    <div>
+    <div className='radio-collection'>
       {options}
     </div>
   );

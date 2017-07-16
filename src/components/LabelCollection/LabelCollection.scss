@@ -1,0 +1,19 @@
+.axis-label {
+  font-size: .6em;
+}
+
+$metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs', 'median_income', 'income_inequality';
+
+@each $metric in $metrics {
+  @keyframes label-transition-#{$metric} {
+    from {opacity: 0};
+    to {opacity: 1};
+  }
+
+  .axis-label.#{$metric} {
+    animation-name: 'label-transition-#{$metric}';
+    animation-duration: .4s;
+    animation-delay: .4s;
+    animation-fill-mode: backwards;
+  }
+}

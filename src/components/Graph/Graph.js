@@ -1,20 +1,21 @@
 import React from 'react';
 import './Graph.css';
 import StateDataPlot from './../StateDataPlot/StateDataPlot';
+import LabelCollection from './../LabelCollection/LabelCollection';
 
 export default function Graph(props) {
   let margin = {
-    left: 50,
-    right: 50,
-    top: 50,
-    bottom: 50
+    left: 75,
+    right: 75,
+    top: 75,
+    bottom: 75
   }
 
   let {data, incomeMetric, wellbeingMetric, graphType, handleMouseEnter, handleMouseLeave, hoveredState, svgDimensions} = props,
       height = svgDimensions.height - margin.top - margin.bottom,
       width = svgDimensions.width - margin.left - margin.right;
 
-  let xAxisLines = [0, .25, .5, .75, 1].map((pct, index) => {
+  let xAxisLines = [.25, .5, .75].map((pct, index) => {
     let yLineCoord = pct * height + margin.top;
     return (
       <line className='percentile-line' x1={margin.left} x2={margin.left + width} y1={yLineCoord} y2={yLineCoord} key={index} />
@@ -40,27 +41,27 @@ export default function Graph(props) {
     }
   });
 
-  stateDataPlots = stateDataPlots.map((state, index) => {
-    let props = {
-      incomeMetric,
-      wellbeingMetric,
-      graphType,
-      minIncomeMetric,
-      maxIncomeMetric,
-      minWellbeingMetric,
-      maxWellbeingMetric,
-      height,
-      width,
-      margin,
-      state,
-      handleMouseEnter,
-      handleMouseLeave,
-      hoveredState
-     };
+  let newProps = {
+    incomeMetric,
+    wellbeingMetric,
+    graphType,
+    minIncomeMetric,
+    maxIncomeMetric,
+    minWellbeingMetric,
+    maxWellbeingMetric,
+    height,
+    width,
+    margin,
+    handleMouseEnter,
+    handleMouseLeave,
+    hoveredState
+   };
 
+  stateDataPlots = stateDataPlots.map((state, index) => {
     return (
       <StateDataPlot
-        {...props}
+        {...newProps}
+        state={state}
         key={index}
       />
     );
@@ -69,7 +70,9 @@ export default function Graph(props) {
   return (
     <div className='graph-container'>
       <svg viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}>
-        <g className='y-axis-lines'>
+        <g className='border-lines'>
+          <line className='percentile-line' x1={margin.left} x2={margin.left + width} y1={height + margin.top} y2={height + margin.top} className={(graphType === 'slope' ? 'x-axis-lines' : '')} />
+          <line className='percentile-line' x1={margin.left} x2={margin.left + width} y1={margin.top} y2={margin.top} className={(graphType === 'slope' ? 'x-axis-lines' : '')}/>
           <line className='axis' x1={margin.left} x2={margin.left} y1={margin.top} y2={margin.top + height} />
           <line className='axis' x1={width + margin.left} x2={width + margin.left} y1={margin.top} y2={margin.top + height} />
         </g>
@@ -78,6 +81,11 @@ export default function Graph(props) {
         </g>
         <g className='state-data'>
           {stateDataPlots}
+        </g>
+        <g className='labels'>
+          <LabelCollection position='y-left' {...newProps} />
+          <LabelCollection position='y-right' {...newProps} />
+          <LabelCollection position='x' {...newProps} />
         </g>
       </svg>
     </div>
