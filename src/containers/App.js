@@ -62,15 +62,15 @@ export default class App extends Component {
     return (
       <div onClick={this.handleClickOutDash}>
         <div className='data-selector-collection'>
-          <div className={`${(this.state.selectedDashButton === 'income' ? 'selected' : '')} data-selector income-metric`} data-selector='income' onClick={this.handleDashButtonSelect} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash} >
+          <div className={`${(this.state.selectedDashButton === 'income' ? 'selected' : '')} data-selector income-metric`} data-selector='income' onClick={(this.state.selectedDashButton ? this.handleClickOutDash : this.handleDashButtonSelect)} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash} >
             <div className='selector-btn'><p>Income <span className='medium-up-label'>Metric</span></p></div>
             <RadioButtonCollection name='incomeMetric' options={incomeMetrics} handleChange={this.handleChange} {...this.state}/>
           </div>
-          <div className={`${(this.state.selectedDashButton === 'wellbeing' ? 'selected' : '')} data-selector wellbeing-metic`} data-selector='wellbeing' onClick={this.handleDashButtonSelect} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
+          <div className={`${(this.state.selectedDashButton === 'wellbeing' ? 'selected' : '')} data-selector wellbeing-metic`} data-selector='wellbeing' onClick={(this.state.selectedDashButton ? this.handleClickOutDash : this.handleDashButtonSelect)} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
             <div className='selector-btn'><p>Wellbeing <span className='medium-up-label'>Metric</span></p></div>
             <RadioButtonCollection name='wellbeingMetric' options={wellbeingMetrics} handleChange={this.handleChange} {...this.state}/>
           </div>
-          <div className={`${(this.state.selectedDashButton === 'chart' ? 'selected' : '')} data-selector chart-type`} data-selector='chart' onClick={this.handleDashButtonSelect} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
+          <div className={`${(this.state.selectedDashButton === 'chart' ? 'selected' : '')} data-selector chart-type`} data-selector='chart' onClick={(this.state.selectedDashButton ? this.handleClickOutDash : this.handleDashButtonSelect)} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
             <div className='selector-btn'><p>Graph <span className='medium-up-label'>Type</span></p></div>
             <RadioButtonCollection name='graphType' options={graphTypes} handleChange={this.handleChange} {...this.state}/>
           </div>
