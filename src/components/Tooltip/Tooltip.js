@@ -9,8 +9,8 @@ export default function Tooltip(props) {
     return (
       <div className='tooltip' style={tooltipStyle}>
         <div><strong>{hoveredState.state}</strong></div>
-        <div>{`${metricKey[incomeMetric].formatted_label}: ${hoveredState[incomeMetric]}`}</div>
-        <div>{`${metricKey[wellbeingMetric].formatted_label}: ${hoveredState[wellbeingMetric]}`}</div>
+        <div>{`${metricKey[incomeMetric].formatted_label}: ${metricKey[incomeMetric].format(hoveredState[incomeMetric])}`}</div>
+        <div>{`${metricKey[wellbeingMetric].formatted_label}: ${metricKey[wellbeingMetric].format(hoveredState[wellbeingMetric])}`}</div>
       </div>
     );
   } else {
