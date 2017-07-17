@@ -40,8 +40,8 @@ export default function LabelCollection(props) {
   } else if (!position && graphType === 'slope') {
     labels = (
       <g>
-        <text textAnchor='middle' className={`axis-label ${wellbeingMetric}`} x={(width + margin.left + margin.right) * .2} y={height + margin.top + 40}>{metricKey[wellbeingMetric].formatted_label}</text>
-        <text textAnchor='middle' className={`axis-label ${incomeMetric}`} x={(width + margin.left + margin.right) * .8} y={height + margin.top + 40}>{metricKey[incomeMetric].formatted_label}</text>
+        <text textAnchor='middle' className={`axis-label ${wellbeingMetric}`} x={(width + margin.left + margin.right) * .1} y={height + margin.top + 40}>{metricKey[wellbeingMetric].formatted_label}</text>
+        <text textAnchor='middle' className={`axis-label ${incomeMetric}`} x={(width + margin.left + margin.right) * .9} y={height + margin.top + 40}>{metricKey[incomeMetric].formatted_label}</text>
       </g>
     );
   } else {

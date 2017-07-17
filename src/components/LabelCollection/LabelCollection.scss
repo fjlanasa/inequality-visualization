@@ -10,7 +10,8 @@ $metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_o
     to {opacity: 1};
   }
 
-  .axis-label.#{$metric} {
+  .axis-label.#{$metric},
+  .metric-description.#{$metric} {
     animation-name: 'label-transition-#{$metric}';
     animation-duration: .4s;
     animation-delay: .4s;

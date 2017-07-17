@@ -7,7 +7,7 @@ export default function Graph(props) {
   let margin = {
     left: 75,
     right: 60,
-    top: 75,
+    top: 50,
     bottom: 75
   }
 

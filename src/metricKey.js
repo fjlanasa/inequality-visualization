@@ -1,7 +1,7 @@
 let key = {
   'income_inequality': {
     formatted_label: 'Gini coefficient',
-    description: 'State-level Gini coefficient based on household income (1999).',
+    description: 'State-level Gini coefficient based on household income (1999). Values range from 0 (perfect equality) to 1 (maximal inequality).',
     source: 'US Census Bureau.',
     format: function(value) {
       return value.toFixed(2);

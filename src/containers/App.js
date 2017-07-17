@@ -3,6 +3,7 @@ import './App.css';
 import Graph from './../components/Graph/Graph';
 import Tooltip from './../components/Tooltip/Tooltip';
 import Dashboard from './../components/Dashboard/Dashboard';
+import MetricDescriptionSection from './../components/MetricDescriptionSection/MetricDescriptionSection';
 
 export default class App extends Component {
   constructor(props) {
@@ -61,6 +62,7 @@ export default class App extends Component {
         <Dashboard handleClickOutDash={this.handleClickOutDash} handleDashButtonSelect={this.handleDashButtonSelect} handleChange={this.handleChange} appState={this.state}/>
         <Graph {...this.state} {...this.props} handleStateMouseEnter={this.handleStateMouseEnter} handleStateMouseLeave={this.handleStateMouseLeave}/>
         <Tooltip {...this.state} />
+        <MetricDescriptionSection {...this.state} />
       </div>
     );
   }

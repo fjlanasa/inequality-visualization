@@ -15,4 +15,9 @@ circle {
 
 .graph-container {
   padding: 0 1em;
+
+  @media (min-width: 900px) {
+    margin: 0 auto;
+    width: 75%;
+  }
 }
