@@ -24,7 +24,7 @@ export default function LabelCollection(props) {
   } else if (position === 'x' && graphType === 'scatter') {
     labels = [0, .25, .5, .75, 1].map((pct, index) => {
       let xCoord = pct * width + margin.left,
-          labelText = metricKey[incomeMetric].format(minIncomeMetric + ((maxIncomeMetric - minIncomeMetric)  * (1 - pct))) || minIncomeMetric;
+          labelText = metricKey[incomeMetric].format(minIncomeMetric + ((maxIncomeMetric - minIncomeMetric)  * pct)) || minIncomeMetric;
       return (
         <text className={`axis-label ${incomeMetric}`} x={xCoord - 5} y={height + margin.top + 15} key={index}>{labelText}</text>
       );
