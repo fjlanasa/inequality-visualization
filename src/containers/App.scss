@@ -1,3 +1,8 @@
+.data-selector-collection {
+  display: flex;
+  justify-content: center;
+}
+
 .data-selector {
   border: 1px solid #ddd;
   position: relative;
@@ -6,10 +11,35 @@
   text-align: center;
   height: 50px;
 
+  // @media (min-width: 700px) {
+  //   width: 30%;
+  //
+  //   &:first-child {
+  //     border-top-left-radius: 10px;
+  //     border-bottom-left-radius: 10px;
+  //   }
+  //
+  //   &:last-child {
+  //     border-top-right-radius: 10px;
+  //     border-bottom-right-radius: 10px;
+  //   }
+  // }
+
   .selector-btn {
     height: 100%;
 
+    p {
+      margin: 0 auto;
+      transform: translateY(50%);
+    }
 
+    .medium-up-label {
+      display: none;
+
+      @media (min-width: 700px) {
+        display: inline-block;
+      }
+    }
   }
   .radio-collection {
     display: none;
@@ -17,7 +47,6 @@
 
   &:hover,
   &.selected {
-    border: 1px solid #044B7F;
 
     .selector-btn {
       background-color: #F1F1F1;
@@ -25,14 +54,15 @@
 
     .radio-collection {
       position: absolute;
-      display: block;
+      display: flex;
+      flex-direction: column;
       z-index: 1;
       width: 100%;
 
       div {
         border: 1px solid #044B7F;
         cursor: pointer;
-        height: 50px;
+        min-height: 50px;
 
         &:hover {
           text-decoration: underline;

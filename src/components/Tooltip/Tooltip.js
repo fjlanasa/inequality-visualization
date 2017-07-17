@@ -4,6 +4,7 @@ import metricKey from './../../metricKey';
 
 export default function Tooltip(props) {
   let {hoveredState, incomeMetric, wellbeingMetric, tooltipStyle} = props;
+
   if (hoveredState) {
     return (
       <div className='tooltip' style={tooltipStyle}>

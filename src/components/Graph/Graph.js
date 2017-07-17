@@ -5,8 +5,8 @@ import LabelCollection from './../LabelCollection/LabelCollection';
 
 export default function Graph(props) {
   let margin = {
-    left: 75,
-    right: 75,
+    left: 100,
+    right: 50,
     top: 75,
     bottom: 75
   }

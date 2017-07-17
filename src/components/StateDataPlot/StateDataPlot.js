@@ -25,7 +25,7 @@ export default function StateData(props) {
           incomeCoord,
           wellbeingCoord;
 
-  let circleClass = (hoveredState && state.state_abbrev != hoveredState.state_abbrev ? 'opaque' : '');
+  let circleClass = (hoveredState && state.state_abbrev !== hoveredState.state_abbrev ? 'opaque' : '');
 
   if (props.graphType === 'scatter') {
     incomeCoord = incomePct * width + margin.left;

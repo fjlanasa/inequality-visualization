@@ -1,4 +1,4 @@
-export default {
+let key = {
   'income_inequality': {
     formatted_label: 'Gini coefficient',
     description: 'State-level Gini coefficient based on household income (1999).',
@@ -56,4 +56,12 @@ export default {
       return `${value.toFixed(2)}%`;
     }
   },
-}
+  'scatter': {
+    'formatted_label': 'Scatter Plot'
+  },
+  'slope': {
+    'formatted_label': 'Slope Graph'
+  }
+};
+
+export default key;

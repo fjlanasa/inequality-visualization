@@ -7,6 +7,14 @@ input[type=radio] {
 
   &+ div {
     background-color: #fff;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: 0 auto;
+    }
   }
 
   &:checked + div {

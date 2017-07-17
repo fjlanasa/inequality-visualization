@@ -20,7 +20,7 @@ export default class App extends Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClickOutDash = this.handleClickOutDash.bind(this);
-    this.handleDashButtonClick = this.handleDashButtonClick.bind(this);
+    this.handleDashButtonSelect = this.handleDashButtonSelect.bind(this);
   }
 
   handleChange(e) {
@@ -50,7 +50,7 @@ export default class App extends Component {
     this.setState({selectedDashButton: null});
   }
 
-  handleDashButtonClick(e) {
+  handleDashButtonSelect(e) {
     e.stopPropagation();
     this.setState({selectedDashButton: e.currentTarget.dataset.selector});
   }
@@ -59,20 +59,19 @@ export default class App extends Component {
     let incomeMetrics = ['income_inequality', 'median_income'],
         wellbeingMetrics = ['life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs'],
         graphTypes = ['scatter', 'slope'];
-
     return (
       <div onClick={this.handleClickOutDash}>
         <div className='data-selector-collection'>
-          <div className={`${(this.state.selectedDashButton === 'income' ? 'selected' : '')} data-selector income-metric`} data-selector='income' onClick={this.handleDashButtonClick} onMouseEnter={this.handleClickOutDash}>
-            <div className='selector-btn'>Income Metric</div>
+          <div className={`${(this.state.selectedDashButton === 'income' ? 'selected' : '')} data-selector income-metric`} data-selector='income' onClick={this.handleDashButtonSelect} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash} >
+            <div className='selector-btn'><p>Income <span className='medium-up-label'>Metric</span></p></div>
             <RadioButtonCollection name='incomeMetric' options={incomeMetrics} handleChange={this.handleChange} {...this.state}/>
           </div>
-          <div className={`${(this.state.selectedDashButton === 'wellbeing' ? 'selected' : '')} data-selector wellbeing-metic`} data-selector='wellbeing' onClick={this.handleDashButtonClick} onMouseEnter={this.handleClickOutDash}>
-            <div className='selector-btn'>Wellbeing Metric</div>
+          <div className={`${(this.state.selectedDashButton === 'wellbeing' ? 'selected' : '')} data-selector wellbeing-metic`} data-selector='wellbeing' onClick={this.handleDashButtonSelect} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
+            <div className='selector-btn'><p>Wellbeing <span className='medium-up-label'>Metric</span></p></div>
             <RadioButtonCollection name='wellbeingMetric' options={wellbeingMetrics} handleChange={this.handleChange} {...this.state}/>
           </div>
-          <div className={`${(this.state.selectedDashButton === 'chart' ? 'selected' : '')} data-selector chart-type`} data-selector='chart' onClick={this.handleDashButtonClick} onMouseEnter={this.handleClickOutDash}>
-            <div className='selector-btn'>Graph Type</div>
+          <div className={`${(this.state.selectedDashButton === 'chart' ? 'selected' : '')} data-selector chart-type`} data-selector='chart' onClick={this.handleDashButtonSelect} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
+            <div className='selector-btn'><p>Graph <span className='medium-up-label'>Type</span></p></div>
             <RadioButtonCollection name='graphType' options={graphTypes} handleChange={this.handleChange} {...this.state}/>
           </div>
         </div>
