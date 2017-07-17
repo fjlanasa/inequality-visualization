@@ -12,8 +12,8 @@ export default function StateData(props) {
        width,
        margin,
        state,
-       handleMouseEnter,
-       handleMouseLeave,
+       handleStateMouseEnter,
+       handleStateMouseLeave,
        hoveredState
       } = props;
 
@@ -34,7 +34,7 @@ export default function StateData(props) {
     return (
       <g>
         <circle className={circleClass} cy={wellbeingCoord} cx={incomeCoord} r={4} />
-        <circle className={circleClass} cy={wellbeingCoord} cx={incomeCoord} data-state={dataStateAttr} r={4} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+        <circle className={circleClass} cy={wellbeingCoord} cx={incomeCoord} data-state={dataStateAttr} r={4} onMouseEnter={handleStateMouseEnter} onMouseLeave={handleStateMouseLeave}/>
       </g>
     );
   } else {
@@ -46,9 +46,9 @@ export default function StateData(props) {
 
     return (
       <g>
-        <circle className={circleClass} cx={margin.left} cy={wellbeingCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-        <circle className={circleClass} cx={margin.left + width} cy={incomeCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-        <line x1={margin.left + 3} x2={margin.left + width - 3} y1={wellbeingCoord} data-state={dataStateAttr} y2={incomeCoord} className={lineClass} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>/>
+        <circle className={circleClass} cx={margin.left} cy={wellbeingCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleStateMouseEnter} onMouseLeave={handleStateMouseLeave}/>
+        <circle className={circleClass} cx={margin.left + width} cy={incomeCoord} r={3} data-state={dataStateAttr} onMouseEnter={handleStateMouseEnter} onMouseLeave={handleStateMouseLeave}/>
+        <line x1={margin.left + 3} x2={margin.left + width - 3} y1={wellbeingCoord} data-state={dataStateAttr} y2={incomeCoord} className={lineClass} onMouseEnter={handleStateMouseEnter} onMouseLeave={handleStateMouseLeave}/>/>
       </g>
     );
   }

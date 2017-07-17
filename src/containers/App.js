@@ -3,6 +3,7 @@ import './App.css';
 import Graph from './../components/Graph/Graph';
 import RadioButtonCollection from './../components/RadioButtonCollection/RadioButtonCollection';
 import Tooltip from './../components/Tooltip/Tooltip';
+import Dashboard from './../components/Dashboard/Dashboard';
 
 export default class App extends Component {
   constructor(props) {
@@ -16,8 +17,8 @@ export default class App extends Component {
       tooltipStyle: null
     }
 
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleStateMouseEnter = this.handleStateMouseEnter.bind(this);
+    this.handleStateMouseLeave = this.handleStateMouseLeave.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClickOutDash = this.handleClickOutDash.bind(this);
     this.handleDashButtonSelect = this.handleDashButtonSelect.bind(this);
@@ -29,7 +30,7 @@ export default class App extends Component {
     this.setState(newState);
   }
 
-  handleMouseEnter(e) {
+  handleStateMouseEnter(e) {
     this.setState({
       hoveredState: JSON.parse(e.target.dataset.state),
       tooltipStyle: {
@@ -42,7 +43,7 @@ export default class App extends Component {
     });
   }
 
-  handleMouseLeave(e) {
+  handleStateMouseLeave(e) {
     this.setState({hoveredState: null});
   }
 
@@ -56,26 +57,10 @@ export default class App extends Component {
   }
 
   render() {
-    let incomeMetrics = ['income_inequality', 'median_income'],
-        wellbeingMetrics = ['life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs'],
-        graphTypes = ['scatter', 'slope'];
     return (
       <div onClick={this.handleClickOutDash}>
-        <div className='data-selector-collection'>
-          <div className={`${(this.state.selectedDashButton === 'income' ? 'selected' : '')} data-selector income-metric`} data-selector='income' onClick={(this.state.selectedDashButton ? this.handleClickOutDash : this.handleDashButtonSelect)} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash} >
-            <div className='selector-btn'><p>Income <span className='medium-up-label'>Metric</span></p></div>
-            <RadioButtonCollection name='incomeMetric' options={incomeMetrics} handleChange={this.handleChange} {...this.state}/>
-          </div>
-          <div className={`${(this.state.selectedDashButton === 'wellbeing' ? 'selected' : '')} data-selector wellbeing-metic`} data-selector='wellbeing' onClick={(this.state.selectedDashButton ? this.handleClickOutDash : this.handleDashButtonSelect)} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
-            <div className='selector-btn'><p>Wellbeing <span className='medium-up-label'>Metric</span></p></div>
-            <RadioButtonCollection name='wellbeingMetric' options={wellbeingMetrics} handleChange={this.handleChange} {...this.state}/>
-          </div>
-          <div className={`${(this.state.selectedDashButton === 'chart' ? 'selected' : '')} data-selector chart-type`} data-selector='chart' onClick={(this.state.selectedDashButton ? this.handleClickOutDash : this.handleDashButtonSelect)} onMouseEnter={this.handleDashButtonSelect} onMouseLeave={this.handleClickOutDash}>
-            <div className='selector-btn'><p>Graph <span className='medium-up-label'>Type</span></p></div>
-            <RadioButtonCollection name='graphType' options={graphTypes} handleChange={this.handleChange} {...this.state}/>
-          </div>
-        </div>
-        <Graph {...this.state} {...this.props} handleMouseEnter={this.handleMouseEnter} handleMouseLeave={this.handleMouseLeave}/>
+        <Dashboard handleClickOutDash={this.handleClickOutDash} handleDashButtonSelect={this.handleDashButtonSelect} handleChange={this.handleChange} appState={this.state}/>
+        <Graph {...this.state} {...this.props} handleStateMouseEnter={this.handleStateMouseEnter} handleStateMouseLeave={this.handleStateMouseLeave}/>
         <Tooltip {...this.state} />
       </div>
     );

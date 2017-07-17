@@ -11,7 +11,7 @@ export default function Graph(props) {
     bottom: 75
   }
 
-  let {data, incomeMetric, wellbeingMetric, graphType, handleMouseEnter, handleMouseLeave, hoveredState, svgDimensions} = props,
+  let {data, incomeMetric, wellbeingMetric, graphType, handleStateMouseEnter, handleStateMouseLeave, hoveredState, svgDimensions} = props,
       height = svgDimensions.height - margin.top - margin.bottom,
       width = svgDimensions.width - margin.left - margin.right;
 
@@ -52,8 +52,8 @@ export default function Graph(props) {
     height,
     width,
     margin,
-    handleMouseEnter,
-    handleMouseLeave,
+    handleStateMouseEnter,
+    handleStateMouseLeave,
     hoveredState
    };
 
