@@ -40,6 +40,13 @@
         display: inline-block;
       }
     }
+
+    .dropdown {
+      display: inline-block;
+      font-size: .5em;
+      margin-left: 5px;
+      transition: .2s all linear;
+    }
   }
   .radio-collection {
     display: none;
@@ -49,6 +56,10 @@
 
     .selector-btn {
       background-color: #F1F1F1;
+
+      .dropdown {
+        transform: rotate(-180deg);
+      }
     }
 
     .radio-collection {
