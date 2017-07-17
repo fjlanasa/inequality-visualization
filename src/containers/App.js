@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Graph from './../components/Graph/Graph';
-import RadioButtonCollection from './../components/RadioButtonCollection/RadioButtonCollection';
 import Tooltip from './../components/Tooltip/Tooltip';
 import Dashboard from './../components/Dashboard/Dashboard';
 

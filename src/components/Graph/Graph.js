@@ -5,8 +5,8 @@ import LabelCollection from './../LabelCollection/LabelCollection';
 
 export default function Graph(props) {
   let margin = {
-    left: 100,
-    right: 50,
+    left: 75,
+    right: 60,
     top: 75,
     bottom: 75
   }
@@ -86,6 +86,7 @@ export default function Graph(props) {
           <LabelCollection position='y-left' {...newProps} />
           <LabelCollection position='y-right' {...newProps} />
           <LabelCollection position='x' {...newProps} />
+          <LabelCollection {...newProps} />
         </g>
       </svg>
     </div>
