@@ -34,14 +34,14 @@ export default function LabelCollection(props) {
     labels = (
       <g>
         <text textAnchor='middle' className={`axis-label ${incomeMetric}`} x={(width + margin.left + margin.right) / 2} y={height + margin.top + 40}>{metricKey[incomeMetric].formatted_label}</text>
-        <text textAnchor='middle' transform={`rotate(-90 ${(margin.left / 3)} ${(height + margin.top + margin.bottom) / 2})`} className={`axis-label ${wellbeingMetric}`} x={margin.left / 3} y={(height + margin.top + margin.bottom) / 2}>{metricKey[wellbeingMetric].formatted_label}</text>
+        <text textAnchor='middle' transform={`rotate(-90 ${margin.left / 5} ${(height + margin.top + margin.bottom) / 2})`} className={`axis-label ${wellbeingMetric}`} x={margin.left / 5} y={(height + margin.top + margin.bottom) / 2}>{metricKey[wellbeingMetric].formatted_label}</text>
       </g>
     );
   } else if (!position && graphType === 'slope') {
     labels = (
       <g>
-        <text textAnchor='middle' className={`axis-label ${wellbeingMetric}`} x={(width + margin.left + margin.right) * .1} y={height + margin.top + 40}>{metricKey[wellbeingMetric].formatted_label}</text>
-        <text textAnchor='middle' className={`axis-label ${incomeMetric}`} x={(width + margin.left + margin.right) * .9} y={height + margin.top + 40}>{metricKey[incomeMetric].formatted_label}</text>
+        <text textAnchor='left' className={`axis-label ${wellbeingMetric}`} x={margin.left} y={height + margin.top + 40}>{metricKey[wellbeingMetric].formatted_label}</text>
+        <text textAnchor='end' className={`axis-label ${incomeMetric}`} x={width + margin.left} y={height + margin.top + 40}>{metricKey[incomeMetric].formatted_label}</text>
       </g>
     );
   } else {

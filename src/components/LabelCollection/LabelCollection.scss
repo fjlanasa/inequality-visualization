@@ -1,5 +1,9 @@
 .axis-label {
-  font-size: .6em;
+  font-size: 1em;
+
+  @media (min-width: 700px) {
+    font-size: .7em;
+  }
 }
 
 $metrics: 'life_expectancy', 'teen_births', 'homicides', 'imprisonment', 'drop_outs', 'median_income', 'income_inequality';
