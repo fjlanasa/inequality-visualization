@@ -44,9 +44,8 @@ export default function LabelCollection(props) {
         <text textAnchor='end' className={`axis-label ${incomeMetric}`} x={width + margin.left} y={height + margin.top + 40}>{metricKey[incomeMetric].formatted_label}</text>
       </g>
     );
-  } else {
-    return null;
   }
+  
   return (
     <g>
       {labels}

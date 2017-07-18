@@ -35,26 +35,20 @@ export default class App extends Component {
     let height = (window.innerWidth > 700 ? '100px' : '50px'),
         minWidth = (window.innerWidth > 700 ? '225px' : '115px'),
         maxWidth = (window.innerWidth > 700 ? '250px' : '140px'),
-        leftAdjustment,
-        topAdjustment;
+        left,
+        top;
 
     if (window.innerWidth > 700) {
-      leftAdjustment = (e.pageX > window.innerWidth / 2 ? -300 : 10);
-      topAdjustment = (e.pageY > window.innerHeight / 2 ? -115 : 10);
+      left = e.pageX + (e.pageX > window.innerWidth / 2 ? -300 : 10);
+      top = e.pageY + (e.pageY > window.innerHeight / 2 ? -115 : 10);
     } else {
-      leftAdjustment = (e.pageX > window.innerWidth / 2 ? -130 : 10);
-      topAdjustment = (e.pageY > window.innerHeight / 2 ? -60 : 10);
+      left = e.pageX + (e.pageX > window.innerWidth / 2 ? -130 : 10);
+      top = e.pageY + (e.pageY > window.innerHeight / 2 ? -60 : 10);
     }
 
     this.setState({
       hoveredState: JSON.parse(e.target.dataset.state),
-      tooltipStyle: {
-        height: height,
-        maxWidth: maxWidth,
-        minWidth: minWidth,
-        left: e.pageX + leftAdjustment,
-        top: e.pageY + topAdjustment
-      }
+      tooltipStyle: { height, maxWidth, minWidth, left, top }
     });
   }
 
