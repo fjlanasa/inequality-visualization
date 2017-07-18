@@ -41,7 +41,7 @@ export default function Graph(props) {
     }
   });
 
-  let newProps = {
+  let childProps = {
     incomeMetric,
     wellbeingMetric,
     graphType,
@@ -60,7 +60,7 @@ export default function Graph(props) {
   stateDataPlots = stateDataPlots.map((state, index) => {
     return (
       <StateDataPlot
-        {...newProps}
+        {...childProps}
         state={state}
         key={index}
       />
@@ -83,10 +83,10 @@ export default function Graph(props) {
           {stateDataPlots}
         </g>
         <g className='labels'>
-          <LabelCollection position='y-left' {...newProps} />
-          <LabelCollection position='y-right' {...newProps} />
-          <LabelCollection position='x' {...newProps} />
-          <LabelCollection {...newProps} />
+          <LabelCollection position='y-left' {...childProps} />
+          <LabelCollection position='y-right' {...childProps} />
+          <LabelCollection position='x' {...childProps} />
+          <LabelCollection {...childProps} />
         </g>
       </svg>
     </div>

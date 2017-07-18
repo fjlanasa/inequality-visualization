@@ -4,6 +4,7 @@ import Graph from './../components/Graph/Graph';
 import Tooltip from './../components/Tooltip/Tooltip';
 import Dashboard from './../components/Dashboard/Dashboard';
 import MetricDescriptionSection from './../components/MetricDescriptionSection/MetricDescriptionSection';
+import AboutSection from './../components/AboutSection/AboutSection';
 
 export default class App extends Component {
   constructor(props) {
@@ -31,14 +32,28 @@ export default class App extends Component {
   }
 
   handleStateMouseEnter(e) {
+    let height = (window.innerWidth > 700 ? '100px' : '50px'),
+        minWidth = (window.innerWidth > 700 ? '225px' : '115px'),
+        maxWidth = (window.innerWidth > 700 ? '250px' : '140px'),
+        leftAdjustment,
+        topAdjustment;
+
+    if (window.innerWidth > 700) {
+      leftAdjustment = (e.pageX > window.innerWidth / 2 ? -300 : 10);
+      topAdjustment = (e.pageY > window.innerHeight / 2 ? -115 : 10);
+    } else {
+      leftAdjustment = (e.pageX > window.innerWidth / 2 ? -130 : 10);
+      topAdjustment = (e.pageY > window.innerHeight / 2 ? -60 : 10);
+    }
+
     this.setState({
       hoveredState: JSON.parse(e.target.dataset.state),
       tooltipStyle: {
-        height: '100px',
-        maxWidth: '250px',
-        minWidth: '225px',
-        left: e.pageX + (e.pageX > window.innerWidth / 2 ? -300 : 10),
-        top: e.pageY + (e.pageY > window.innerHeight / 2 ? -115 : 10),
+        height: height,
+        maxWidth: maxWidth,
+        minWidth: minWidth,
+        left: e.pageX + leftAdjustment,
+        top: e.pageY + topAdjustment
       }
     });
   }
@@ -60,9 +75,13 @@ export default class App extends Component {
     return (
       <div onClick={this.handleClickOutDash}>
         <Dashboard handleClickOutDash={this.handleClickOutDash} handleDashButtonSelect={this.handleDashButtonSelect} handleChange={this.handleChange} appState={this.state}/>
-        <Graph {...this.state} {...this.props} handleStateMouseEnter={this.handleStateMouseEnter} handleStateMouseLeave={this.handleStateMouseLeave}/>
-        <Tooltip {...this.state} />
-        <MetricDescriptionSection {...this.state} />
+        <div id='content'>
+          <h1>Economic and Social Indicators Among US States</h1>
+          <Graph {...this.state} {...this.props} handleStateMouseEnter={this.handleStateMouseEnter} handleStateMouseLeave={this.handleStateMouseLeave}/>
+          <Tooltip {...this.state} />
+          <MetricDescriptionSection {...this.state} />
+          <AboutSection />
+        </div>
       </div>
     );
   }

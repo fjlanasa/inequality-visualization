@@ -2,10 +2,15 @@
   box-shadow: 0 0 1em #ddd;
   border: 1px solid black;
   border-radius: 2px;
+  font-size: .5em;
   position: absolute;
   padding: 1em;
   background-color: #ddd;
   pointer-events: none;
+
+  @media (min-width: 700px) {
+    font-size: 1em;
+  }
 
   div {
     margin: .5em 0;

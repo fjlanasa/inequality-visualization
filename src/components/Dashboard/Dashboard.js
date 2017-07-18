@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dashboard.css';
 import RadioButtonCollection from './../RadioButtonCollection/RadioButtonCollection';
 
 export default function Dashboard(props) {
