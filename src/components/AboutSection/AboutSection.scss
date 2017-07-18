@@ -1,5 +1,5 @@
 #about {
-  padding: 0 2em;
+  padding: 0 2em 2em;;
 
   h2 {
   font-size: 1em;
@@ -12,35 +12,9 @@
 
   .about-content {
     font-size: .7em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    div {
-      margin-bottom: 1em;
-    }
-
-    #spirit-level-img {
-      height: calc(346px * .5);
-      width: calc(231px * .5);
-
-      img {
-        height: auto;
-        width: 100%;
-      }
-    }
 
     @media (min-width: 750px) {
       font-size: 1em;
-      flex-direction: row;
-      align-items: flex-start;
-      font-size: 1em;
-
-      &> div {
-        margin-right: 1em;
-        width: 70%;
-      }
     }
   }
 }
