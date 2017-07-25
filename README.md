@@ -10,7 +10,7 @@ Once npm is set up:
 
 ```
 git clone https://github.com/fjlanasa/inequality-visualization.git
-cd word-web-app-front-end
+cd inequality-visualization
 npm install
 
 npm start
