@@ -15,5 +15,5 @@ npm install
 
 npm start
 
-open http://localhost:3000  # Make sure back-end is running on port 4567
+open http://localhost:3000
 ```
