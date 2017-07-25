@@ -17,3 +17,4 @@ npm start
 
 open http://localhost:3000
 ```
+![Demo gif](https://cl.ly/0V1I083f2Z2k/Screen%20Recording%202017-07-18%20at%2004.24%20PM.gif)
